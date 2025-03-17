@@ -5,7 +5,7 @@ ENV DockerHome=/home/crawler/serp
 RUN mkdir -p $DockerHome
 WORKDIR $DockerHome
 
-COPY reqirements.txt .
+COPY requirements.txt .
 RUN python -m venv env
 
 RUN env/bin/python -m pip install --upgrade pip
