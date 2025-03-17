@@ -17,6 +17,7 @@ def trafficy(addresses:list):
     driver = uc.Chrome(options=chrome_options,driver_executable_path='./chromedriver')
 
     for address in addresses:
+        print(f'crawl address {address}')
         driver.get(address)
         body = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         body.send_keys(Keys.END)
@@ -38,5 +39,7 @@ addresses = [
     'https://javidaan.com/about/',
     'https://javidaan.com/contact/'
 ]
+
+print(addresses)
 
 trafficy(addresses)
