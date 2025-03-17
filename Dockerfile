@@ -23,4 +23,4 @@ COPY main.py .
 ENV PYTHONDONWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-CMD env/bin/python3 main.py
+CMD ls && env/bin/python3 main.py
