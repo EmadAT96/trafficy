@@ -1,3 +1,5 @@
+import random
+
 import selenium.webdriver.support.expected_conditions as EC
 import undetected_chromedriver as uc
 import  time
@@ -16,29 +18,54 @@ chrome_options.add_argument("--user-agent=Mozilla/5.0 (Linux; Android 13; SM-S90
 def trafficy(addresses:list):
     driver = uc.Chrome(options=chrome_options,driver_executable_path='./chromedriver')
 
-    for address in addresses:
-        print(f'crawl address {address}')
+    while addresses:
+        index = random.randint(0, len(addresses)-1)
+        address = addresses.pop(index)
         driver.get(address)
+        print(f'crawl address {address}')
         body = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         body.send_keys(Keys.END)
         time.sleep(30)
         body.send_keys(Keys.HOME)
-        # first_link = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.TAG_NAME, 'a')))
-        # first_link.click()
-        body = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        body.send_keys(Keys.END)
-        time.sleep(30)
-        body.send_keys(Keys.HOME)
-        time.sleep(30)
 
 addresses = [
-    'https://javidaan.com/',
-    'https://javidaan.com/pricing/',
-    'https://javidaan.com/category/blog/',
-    'https://javidaan.com/privacy-policy/',
-    'https://javidaan.com/about/',
-    'https://javidaan.com/contact/'
+    'http://golhaco.ir/',
+    'https://golhaco.ir/shop/',
+    'https://golhaco.ir/news/',
+    'https://golhaco.ir/blog/',
+    'https://golhaco.ir/recipe/dessert/',
+    'https://golhaco.ir/recipe/main-course/',
+    'https://golhaco.ir/recipe/appetizer/',
+    'https://golhaco.ir/food-decorations/',
+    'https://golhaco.ir/best-spices/',
+    'https://golhaco.ir/food-health/',
+    'https://golhaco.ir/info/',
+    'https://golhaco.ir/food-culture/',
+    'https://golhaco.ir/shirini-nokhodchi-recipe/',
+    'https://golhaco.ir/%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-%da%af%d9%84%d9%87%d8%a7-%d8%a8%d9%87-%d8%af%db%8c%d8%ac%db%8c-%d9%be%db%8c/',
+    'https://golhaco.ir/production-of-brown-sugar/',
+    'https://golhaco.ir/production-of-basil-seed-and-flixweed/',
+    'https://golhaco.ir/originality-and-antiquity-of-the-golha-brand/',
+    'https://golhaco.ir/golha-record-holder-of-certificates-and-standards/',
+    'https://golhaco.ir/awarding-economy-resistane-badge/',
+    'https://golhaco.ir/organic-products/',
+    'https://golhaco.ir/soybeans-in-the-oil-offset-list/',
+    'https://golhaco.ir/sugar-free-jelly-powder-launched/',
+    'https://golhaco.ir/parts-of-entrepreneurship/',
+    'https://golhaco.ir/sabzi-polo-ba-mahi/',
+    'https://golhaco.ir/shirini-nokhodchi-recipe/',
+    'https://golhaco.ir/halim-recipe/',
+    'https://golhaco.ir/tumeric-for-skin/',
+    'https://golhaco.ir/pofaki-gerdoyi-recipe/',
+    'https://golhaco.ir/reshte-polo-with-chicken-recipe/',
+    'https://golhaco.ir/tarkhine-ash-recipe/',
+    'https://golhaco.ir/masala-spice/',
+    'https://golhaco.ir/black-pepper-tea/',
+    'https://golhaco.ir/best-spice-for-pizza/',
+    'https://golhaco.ir/havij-gerdoo-cake-recipe/',
+    'https://golhaco.ir/salad-kalam-recipe/'
 ]
+
 
 print(addresses)
 
