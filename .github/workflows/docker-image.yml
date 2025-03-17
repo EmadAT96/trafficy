@@ -29,4 +29,3 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/bot:latest
-            ${{ secrets.DOCKER_USERNAME }}/bot:${{ github.event.release.tag_name }}
